@@ -10,18 +10,8 @@ const KeyBoard = () => {
   const [result, setResult] = useState<Number | null>();
 
   const calculus = secondNumber + '' + operation + '' + firstNumber;
-  const a = calculus.substring(0, calculus.length - 1);
-  console.log('ahihi', calculus);
-  console.log('hihi', a);
 
-  const c = () => {
-    const d = calculus.substring(0, calculus.length - 1);
-    return d;
-  };
   const handleNumberPress = (buttonValue: string) => {
-    // if (firstNumber.length < 20) {
-     
-    // }
     setFirstNumber(firstNumber + buttonValue);
     setResult(null);
   };
@@ -68,10 +58,6 @@ const KeyBoard = () => {
         break;
     }
   };
-  //   console.log('s', secondNumber);
-  //   console.log('s1', firstNumber);
-  //   console.log('s2', result);
-  //   console.log('s3', operation);
 
   return (
     <View style={styles.container}>
@@ -84,12 +70,7 @@ const KeyBoard = () => {
       </View>
       <View style={styles.boxResult}>
         {result === null ? (
-          <Text style={styles.textResult}>
-            {secondNumber}
-            {operation}
-            {firstNumber}
-            {/* {calculus} */}
-          </Text>
+          <Text style={styles.textResult}>{calculus}</Text>
         ) : (
           <Text style={styles.textResult}>{result?.toString()}</Text>
         )}
@@ -104,8 +85,6 @@ const KeyBoard = () => {
         <Button
           isWhite
           onPress={() => setFirstNumber(firstNumber.slice(0, -1))}>
-          {/* onPress={() => c()}
-          > */}
           <Text style={styles.textBlue}>⌫</Text>
         </Button>
         <Button isWhite onPress={() => handleOperationPress('+')}>
